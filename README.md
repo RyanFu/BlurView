@@ -44,7 +44,7 @@ Always try to choose the closest possible root layout to BlurView. This will gre
 ## Vector drawables issue
 In version 1.4.0 a new API was added - `setHasFixedTransformationMatrix(boolean)`.
 You can set it to true to optimize position calculation before blur.
-By default, BlurView calculates its translation, rotation and scale before each draw call.
+By default, BlurView takes into account its translation, rotation and scale before each draw call.
 If you are not changing these properties (for example, during animation), this behavior can be changed
 to calculate them only once during initialization.
 
