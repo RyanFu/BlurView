@@ -41,6 +41,15 @@ It honors its position and size changes, including view animation and property a
 
 Always try to choose the closest possible root layout to BlurView. This will greatly reduce the amount of work needed for creating View hierarchy snapshot.
 
+## Vector drawables issue
+In version 1.4.0 a new API was added - `setHasFixedTransformationMatrix(boolean)`.
+You can set it to true to optimize position calculation before blur.
+By default, BlurView calculates its translation, rotation and scale before each draw call.
+If you are not changing these properties (for example, during animation), this behavior can be changed
+to calculate them only once during initialization.
+
+This also resolves the issue with <a href="https://github.com/Dimezis/BlurView/issues/41">distortion of vector drawables</a>
+
 ## Supporting API < 17
 If you need to support API < 17, you can include
 
@@ -72,7 +81,7 @@ It takes 1-4ms on Nexus 5 and Nexus 4 to draw BlurView with the setup given in e
 
 ## Gradle
 ```Groovy
-implementation 'com.eightbitlab:blurview:1.3.4'
+implementation 'com.eightbitlab:blurview:1.4.0'
 ```
 
 License
